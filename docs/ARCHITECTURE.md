@@ -24,6 +24,12 @@ antigravity/
 │   │   ├── admin/            # 관리자용 테이블, 차트, 모달
 │   │   └── ui/               # 공통 기본 디자인 컴포넌트
 │   ├── lib/                  # 외부 연동 및 공통 라이브러리
-│   │   └── supabase/         # Supabase 클라이언트 및 설정
+│   │   └── supabase.ts       # Supabase 클라이언트 및 설정
 │   └── types/                # TypeScript 타입 정의 (자산, 차량, 자재 등)
 └── .env.local                # 로컬 환경 변수 (Supabase URL 및 API Key)
+```
+
+## 3. 로컬 실행 및 배포
+- 로컬 실행 전 `.env.example`을 참고해 프로젝트 루트에 `.env.local`을 만들고 Supabase URL과 Publishable key를 설정합니다.
+- `.env.local`은 Git에 올리지 않습니다. Vercel 프로젝트의 Environment Variables에 `NEXT_PUBLIC_SUPABASE_URL`과 `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`를 등록합니다. 기존 프로젝트의 `NEXT_PUBLIC_SUPABASE_ANON_KEY`도 호환됩니다.
+- GitHub 저장소를 Vercel 프로젝트에 연결하면 Next.js 기본 설정으로 빌드 및 배포됩니다. Production과 Preview 환경에 필요한 변수를 각각 설정해야 합니다.
